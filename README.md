@@ -33,7 +33,9 @@
 В качестве ответа в репозиторий шаблона с решением добавьте скриншоты с настройками раннера в проекте.
 
 
-[local gitlab](https://github.com/sash3939/gitlab/assets/156709540/976a8735-2409-4824-85d5-16329715dcb7)
+1. [local gitlab](https://github.com/sash3939/gitlab/assets/156709540/976a8735-2409-4824-85d5-16329715dcb7)
+2. [project](https://github.com/sash3939/gitlab/assets/156709540/fef9671c-1334-430d-8e93-5ac8c881783b)
+3. 
 
 
 ---
