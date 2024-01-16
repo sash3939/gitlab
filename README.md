@@ -50,20 +50,15 @@
    [push](https://github.com/sash3939/gitlab/assets/156709540/f8423578-d529-4026-b421-13e304803551)
 
 3. `Создайте .gitlab-ci.yml, описав в нём все необходимые, на ваш взгляд, этапы.`
+   [gitlab-ci.yml](https://github.com/sash3939/gitlab/assets/156709540/2843c705-0147-479a-b200-8d6cbf6f0b69)
 
 В качестве ответа в шаблон с решением добавьте:
 
-`- файл gitlab-ci.yml для своего проекта или вставьте код в соответствующее поле в шаблоне;`
+`- файл gitlab-ci.yml для своего проекта или вставьте код в соответствующее поле в шаблоне`
 `- скриншоты с успешно собранными сборками`
+[pipeline](https://github.com/sash3939/gitlab/assets/156709540/1f152bb7-9013-4d9c-a8f0-09e2e1d60914)
 
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
----
+
 
 ### Задание 3
 
@@ -78,10 +73,40 @@
 
 ```
 Поле для вставки кода...
-....
-....
-....
-....
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  # Добавьте переменные, если необходимо
+
+before_script:
+  # Шаги, которые нужно выполнить перед каждым job
+
+build:
+  stage: build
+  script:
+    - echo "Building the project..."
+
+test:
+  stage: test
+  script:
+    - >
+      if [[ $(git diff --name-only $CI_COMMIT_BEFORE_SHA $CI_COMMIT_SHA -- '*.go' | wc -l) -gt 0 ]]; then
+        echo "Running tests..."
+        # Ваши команды для запуска тестов
+      else
+        echo "No changes in *.go files. Skipping tests."
+      fi
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to production..."
+  only:
+    - master  # Деплой выполняется только при изменениях в ветке master
+
 ```
 
 `При необходимости прикрепитe сюда скриншоты
